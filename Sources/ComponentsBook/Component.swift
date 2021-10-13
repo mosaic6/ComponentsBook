@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+@available(iOS 13.0, *)
 @available(macOS 10.15, *)
 public struct Component {
     public var title: String
@@ -22,6 +23,7 @@ public struct Component {
     }
 }
 
+@available(iOS 13.0, *)
 @available(macOS 10.15, *)
 extension Component: Hashable {
     public static func == (lhs: Component, rhs: Component) -> Bool {
