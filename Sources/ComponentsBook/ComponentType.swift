@@ -8,7 +8,7 @@
 import Foundation
 
 /// The type in which to categorize a view
-struct ComponentType: Hashable {
+public struct ComponentType: Hashable {
     public var id = UUID()
-    var value: String
+    public var value: String
 }

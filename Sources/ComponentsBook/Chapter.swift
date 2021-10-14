@@ -12,6 +12,6 @@ import SwiftUI
 @available(macOS 10.15, *)
 public struct Chapter: Identifiable {
     public let id = UUID()
-    let type: ComponentType
-    let pages: [Component]
+    public let type: ComponentType
+    public let pages: [Component]
 }
