@@ -15,7 +15,6 @@ public protocol ComponentProtocol {
     var description: String { get set }
 
     associatedtype T: View
-    var view: T { get }
 
     @ViewBuilder func makeView() -> T
 }
