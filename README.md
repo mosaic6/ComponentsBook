@@ -1,3 +1,3 @@
 # ComponentsBook
 
-A description of this package.
+A component library of SwiftUI views.
