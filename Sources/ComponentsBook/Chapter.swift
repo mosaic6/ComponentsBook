@@ -13,4 +13,9 @@ public struct Chapter: Identifiable {
     public let id = UUID()
     public let type: ComponentType
     public let pages: [Component]
+
+    public init(type: ComponentType, pages: [Component]) {
+        self.type = type
+        self.pages = pages
+    }
 }
