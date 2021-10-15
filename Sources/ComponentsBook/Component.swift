@@ -25,6 +25,12 @@ public struct Component {
     public var description: String?
     public var view: AnyView
 
+    public init(title: String, description: String?, view: AnyView) {
+        self.title = title
+        self.description = description
+        self.view = view
+    }
+
     @ViewBuilder func makeView() -> some View {
         VStack(spacing: 30) {
             Text(description ?? title)
