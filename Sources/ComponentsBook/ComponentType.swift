@@ -172,6 +172,10 @@ public enum CustomTypes: CustomStringConvertible {
 public struct ComponentType {
     public var id = UUID()
     public var value: MainTypes
+
+    public init(value: MainTypes) {
+        self.value = value
+    }
 }
 
 @available(iOS 13.0, *, macOS 10.15, *)
