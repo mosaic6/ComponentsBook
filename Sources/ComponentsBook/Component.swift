@@ -9,17 +9,6 @@ import Foundation
 import SwiftUI
 
 @available(iOS 13.0, *, macOS 10.15, *)
-public protocol ComponentProtocol {
-    var type: MainTypes { get set }
-    var title: String { get set }
-    var description: String { get set }
-
-    associatedtype T: View
-
-    @ViewBuilder func makeView() -> T
-}
-
-@available(iOS 13.0, *, macOS 10.15, *)
 public struct Component {
     public var title: String
     public var description: String?
