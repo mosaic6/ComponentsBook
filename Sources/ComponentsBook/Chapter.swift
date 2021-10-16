@@ -18,4 +18,8 @@ public struct Chapter: Identifiable {
         self.type = type
         self.pages = pages
     }
+
+    public static func configure(type: ComponentType, pages: [Component]) -> Chapter {
+        self.init(type: type, pages: pages)
+    }
 }
