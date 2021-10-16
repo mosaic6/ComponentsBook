@@ -10,13 +10,11 @@ import SwiftUI
 
 @available(iOS 13.0, *, macOS 10.15, *)
 public struct Component {
-    public var subType: MainTypes
     public var title: String
     public var description: String?
     public var view: AnyView
 
-    public init(subType: MainTypes, title: String = "", description: String? = "", view: AnyView) {
-        self.subType = subType
+    public init(title: String = "", description: String? = "", view: AnyView) {
         self.title = title
         self.description = description
         self.view = view
