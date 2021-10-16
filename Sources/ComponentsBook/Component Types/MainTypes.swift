@@ -7,19 +7,7 @@
 
 import Foundation
 /// The type in which to categorize a component
-public enum MainTypes: CustomStringConvertible, CaseIterable, Identifiable {
-    public var id: UUID {
-        return UUID()
-    }
-    public static var allCases: [MainTypes] {
-        return [
-            .bars(.toolbars),
-            .controls(.colorWells),
-            .custom(.some("")),
-            .extensions(.sharingAndActions),
-            .views(.pages)]
-    }
-
+public enum MainTypes: CustomStringConvertible {
     case bars(BarTypes)
     case controls(ControlTypes)
     case views(ViewTypes)
