@@ -11,15 +11,15 @@ import SwiftUI
 @available(iOS 13.0, *, macOS 10.15, *)
 public struct Chapter: Identifiable {
     public let id = UUID()
-    public let type: ComponentType
-    public let pages: [Component]
+    public var type: MainTypes
+    public var title: String
+    public var description: String?
+    public var view: AnyView
+    public let children: [Chapter]?
 
-    public init(type: ComponentType, pages: [Component]) {
-        self.type = type
-        self.pages = pages
-    }
-
-    public static func configure(type: ComponentType, pages: [Component]) -> Chapter {
-        self.init(type: type, pages: pages)
+    @ViewBuilder func makeView() -> some View {
+        VStack {
+            view
+        }
     }
 }
