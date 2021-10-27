@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-@available(iOS 13.0, *, macOS 10.15, *)
+@available(iOS 14.0, *, macOS 11.0, *)
 public struct Chapter: Identifiable {
     public let id = UUID()
     public var type: MainTypes

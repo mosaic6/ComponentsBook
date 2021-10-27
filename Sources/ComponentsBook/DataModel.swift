@@ -7,7 +7,7 @@
 
 import Foundation
 
-@available(iOS 13.0, *, macOS 10.15, *)
+@available(iOS 14.0, *, macOS 11.0, *)
 public class DataModel: ObservableObject {
     @Published var chapters = [Chapter]()
 
