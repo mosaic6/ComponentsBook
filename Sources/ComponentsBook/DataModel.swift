@@ -10,4 +10,8 @@ import Foundation
 @available(iOS 13.0, *, macOS 10.15, *)
 public class DataModel: ObservableObject {
     @Published var chapters = [Chapter]()
+
+    public init(chapters: [Chapter] = []) {
+        self.chapters = chapters
+    }
 }
