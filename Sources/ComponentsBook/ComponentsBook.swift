@@ -5,10 +5,14 @@ public struct ComponentsBook: View  {
     
     @ObservedObject var dataModel = DataModel()
 
+    public init(dataModel: DataModel) {
+        self.dataModel = dataModel
+    }
+
     public var body: some View {
         NavigationView {
             List(dataModel.chapters, children: \.children) { item in
-                NavigationLink(item.title, destination: item.makeView())
+                NavigationLink(item.title ?? "", destination: item.makeView())
             }
             .listStyle(SidebarListStyle())
         }
