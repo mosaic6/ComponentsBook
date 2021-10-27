@@ -12,7 +12,7 @@ public struct ComponentsBook: View  {
     public var body: some View {
         NavigationView {
             List(dataModel.chapters, children: \.children) { item in
-                NavigationLink(item.title ?? "", destination: item.makeView())
+                NavigationLink(item.title ?? item.type.title, destination: item.makeView())
             }
             .listStyle(SidebarListStyle())
         }
