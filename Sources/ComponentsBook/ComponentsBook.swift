@@ -15,7 +15,7 @@ public struct ComponentsBook: View {
                 ForEach(dataModel.chapters, id: \.self) { chapter in
                     Text(chapter.type.title)
                     ForEach(chapter.pages ?? [], id: \.self) { page in
-                        NavigationLink(page.title ?? page.type.title, destination: page.makeView())
+                        NavigationLink(page.title ?? page.type.subTypes, destination: page.makeView())
                     }
                 }
             }
