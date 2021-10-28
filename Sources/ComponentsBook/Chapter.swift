@@ -10,14 +10,14 @@ import SwiftUI
 
 @available(iOS 14.0, *, macOS 11.0, *)
 public struct Chapter: Identifiable {
-    public let id = UUID()
+    public var id = UUID()
     
     public var type: MainTypes
-    public let children: [Page]?
+    public var pages: [Page]?
 
-    public init(type: MainTypes, children: [Page]?) {
+    public init(type: MainTypes, pages: [Page]?) {
         self.type = type
-        self.children = children
+        self.pages = pages
     }
 }
 
@@ -41,6 +41,17 @@ public struct Page: Identifiable {
         VStack {
             view
         }
+    }
+}
+
+@available(iOS 14.0, *, macOS 11.0, *)
+extension Chapter: Hashable {
+    public static func == (lhs: Chapter, rhs: Chapter) -> Bool {
+        return lhs.id == rhs.id
+    }
+
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }
 
