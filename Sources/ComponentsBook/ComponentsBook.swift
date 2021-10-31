@@ -4,7 +4,6 @@ import SwiftUI
 public struct ComponentsBook: View {
     
     @ObservedObject var dataModel = DataModel()
-    @State private var searchText = ""
 
     public init(dataModel: DataModel) {
         self.dataModel = dataModel
@@ -12,18 +11,16 @@ public struct ComponentsBook: View {
 
     public var body: some View {
         NavigationView {
-            VStack {
-                TextField("Search", text: $searchText)
-                List {
-                    ForEach(dataModel.chapters, id: \.self) { chapter in
-                        Text(chapter.type.title)
+            List {
+                ForEach(dataModel.chapters, id: \.self) { chapter in
+                    Section(header: Text(chapter.type.title)) {
                         ForEach(chapter.pages ?? [], id: \.self) { page in
                             NavigationLink(page.subType?.title ?? page.title ?? "", destination: page.makeView())
                         }
                     }
                 }
-                .listStyle(SidebarListStyle())
             }
+            .listStyle(SidebarListStyle())
         }
     }
 }
