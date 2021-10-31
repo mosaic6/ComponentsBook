@@ -25,13 +25,16 @@ public struct Chapter: Identifiable {
 public struct Page: Identifiable {
     public let id = UUID()
 
-    public let type: MainTypes
+    public let subType: SubTypes?
     public let title: String?
     public let description: String?
     public let view: AnyView
 
-    public init(type: MainTypes, title: String? = "", description: String? = "", view: AnyView) {
-        self.type = type
+    public init(subType: SubTypes?,
+                title: String? = "",
+                description: String? = "",
+                view: AnyView) {
+        self.subType = subType
         self.title = title
         self.description = description
         self.view = view

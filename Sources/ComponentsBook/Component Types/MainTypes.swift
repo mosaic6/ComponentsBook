@@ -8,11 +8,11 @@
 import Foundation
 /// The type in which to categorize a component
 public enum MainTypes: CustomStringConvertible {
-    case bars(BarTypes)
-    case controls(ControlTypes)
-    case views(ViewTypes)
-    case extensions(ExtensionTypes)
-    case custom(CustomTypes)
+    case bars
+    case controls
+    case views
+    case extensions
+    case custom
 
     public var description: String {
         return "Main type of components"
@@ -25,21 +25,6 @@ public enum MainTypes: CustomStringConvertible {
             case .custom: return "Custom"
             case .extensions: return "Extentions"
             case .views: return "Views"
-        }
-    }
-
-    public var subTypes: String {
-        switch self {
-            case .bars(let type):
-                return type.title
-            case .controls(let type):
-                return type.title
-            case .custom(let type):
-                return type.title
-            case .extensions(let type):
-                return type.title
-            case .views(let type):
-                return type.title
         }
     }
 }
