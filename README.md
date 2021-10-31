@@ -37,21 +37,21 @@ import ComponentsBook
 ```
 let chapters: [Chapter] = [
     /// Group Button controls here
-    .init(type: .init(value: .controls(.buttons)), pages: [
-        .init(title: "Example Button", description: nil, view: AnyView(ExampleButton()))
+    .init(type: .controls, pages: [
+        .init(subType: .controlType(.buttons), title: "Example Button", description: nil, view: AnyView(ExampleButton()))
     ]),
     /// Group Page views here
-    .init(type: .init(value: .views(.pages)), pages: [
-        .init(title: "Empty View", description: nil, view: AnyView(EmptyView()))
+    .init(type: .views, pages: [
+        .init(subType: .viewType(.actionSheets), title: "Empty View", description: nil, view: AnyView(CustomActionSheet()))
     ])
 ]
 ```
 
-- Update the `body` property with `ComponentBook(chapters: chapters)`
+- Update the `body` property with `ComponentsBook(dataModel: DataModel(chapters: chapters))`
 
 ```
 var body: some View {
-    ComponentsBook(chapters: chapters)
+    ComponentsBook(dataModel: DataModel(chapters: chapters))
 }
 ```
 
