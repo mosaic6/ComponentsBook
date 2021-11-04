@@ -32,7 +32,10 @@ struct TestView: View {
 extension DataModel {
     static var previewData: DataModel = DataModel(chapters: [
         .init(type: .controls, pages: [
-            .init(subType: .controlType(.textFields), view: AnyView(TestView()))
+            .init(subType: .controlType(.textFields), view: AnyView(TestView())),
+            .init(subType: .controlType(.colorWells), view: AnyView(TestView())),
+            .init(subType: .controlType(.buttons), view: AnyView(TestView())),
+            .init(subType: .controlType(.editMenus), view: AnyView(TestView()))
         ])
     ])
 }

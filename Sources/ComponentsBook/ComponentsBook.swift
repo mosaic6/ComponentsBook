@@ -4,6 +4,7 @@ import SwiftUI
 public struct ComponentsBook: View {
     
     @ObservedObject var dataModel = DataModel()
+    @State var searchText = ""
 
     public init(dataModel: DataModel) {
         self.dataModel = dataModel
@@ -13,7 +14,7 @@ public struct ComponentsBook: View {
         NavigationView {
             List {
                 ForEach(dataModel.chapters, id: \.self) { chapter in
-                    Section(header: Text(chapter.type.title)) {
+                    Section(header: Label(chapter.type.title, systemImage: chapter.type.icon)) {
                         ForEach(chapter.pages ?? [], id: \.self) { page in
                             NavigationLink(page.subType?.title ?? page.title ?? "", destination: page.makeView())
                         }
