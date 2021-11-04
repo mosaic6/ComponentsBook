@@ -4,7 +4,6 @@ import SwiftUI
 public struct ComponentsBook: View {
     
     @ObservedObject var dataModel = DataModel()
-    @State var searchText = ""
 
     public init(dataModel: DataModel) {
         self.dataModel = dataModel
