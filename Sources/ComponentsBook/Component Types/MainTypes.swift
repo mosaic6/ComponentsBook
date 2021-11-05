@@ -27,4 +27,14 @@ public enum MainTypes: CustomStringConvertible {
             case .views: return "Views"
         }
     }
+
+    public var icon: String {
+        switch self {
+            case .bars: return "chart.bar"
+            case .controls: return "switch.2"
+            case .custom: return "function"
+            case .extensions: return "puzzlepiece"
+            case .views: return "viewfinder"
+        }
+    }
 }
