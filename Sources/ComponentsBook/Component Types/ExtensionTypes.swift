@@ -1,7 +1,4 @@
 //
-//  File.swift
-//  
-//
 //  Created by Joshua Walsh on 10/15/21.
 //
 
@@ -15,7 +12,7 @@ public enum ExtensionTypes: CustomStringConvertible, CaseIterable {
     case sharingAndActions
 
     public var description: String {
-        return "Extention type of components"
+        return "Extension type of components"
     }
 
     public var title: String {
