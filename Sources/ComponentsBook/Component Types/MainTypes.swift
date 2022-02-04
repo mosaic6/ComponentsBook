@@ -1,7 +1,4 @@
 //
-//  File.swift
-//  
-//
 //  Created by Joshua Walsh on 10/15/21.
 //
 
@@ -23,7 +20,7 @@ public enum MainTypes: CustomStringConvertible {
             case .bars: return "Bars"
             case .controls: return "Controls"
             case .custom: return "Custom"
-            case .extensions: return "Extentions"
+            case .extensions: return "Extensions"
             case .views: return "Views"
         }
     }

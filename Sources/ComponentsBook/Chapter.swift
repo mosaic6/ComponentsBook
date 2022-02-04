@@ -1,7 +1,4 @@
 //
-//  File.swift
-//  
-//
 //  Created by Joshua Walsh on 10/13/21.
 //
 
@@ -35,7 +32,7 @@ public struct Page: Identifiable {
                 description: String? = "",
                 view: AnyView) {
         self.subType = subType
-        self.title = title
+        self.title = subType?.title ?? title
         self.description = description
         self.view = view
     }
