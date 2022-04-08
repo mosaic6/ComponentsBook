@@ -5,6 +5,7 @@
 import Foundation
 import SwiftUI
 
+/// The main holder of each component type.
 @available(iOS 14.0, *, macOS 11.0, *)
 public struct Chapter: Identifiable {
     public var id = UUID()
