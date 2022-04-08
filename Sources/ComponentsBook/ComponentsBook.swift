@@ -14,7 +14,7 @@ public struct ComponentsBook: View {
             return dataModel.chapters.filter { pages in
                 guard let pages = pages.pages else { return false }
                 for page in pages {
-                    return page.title?.contains(searchText) ?? false
+                    return page.title?.lowercased().contains(searchText.lowercased()) ?? false
                 }
 
                 return false
