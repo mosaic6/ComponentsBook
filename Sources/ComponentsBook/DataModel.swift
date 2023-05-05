@@ -5,7 +5,6 @@
 import Foundation
 import SwiftUI
 
-@available(iOS 14.0, *, macOS 11.0, *)
 public class DataModel: ObservableObject {
     @Published var chapters = [Chapter]()
 
@@ -15,17 +14,17 @@ public class DataModel: ObservableObject {
 }
 
 #if DEBUG
-@available(iOS 14.0, *, macOS 11.0, *)
 struct TestView: View {
     var body: some View {
         HStack {
             Image(systemName: "plus.message.fill")
             TextField("Test text", text: .constant("Some Values"))
+                .background(Color.primary)
+                .padding(.horizontal, 10)
         }
     }
 }
 
-@available(iOS 14.0, *, macOS 11.0, *)
 extension DataModel {
     static var previewData: DataModel = DataModel(chapters: [
         .init(type: .controls, pages: [

@@ -1,6 +1,5 @@
 import SwiftUI
 
-@available(iOS 15.0, *, macOS 11.0, *)
 public struct ComponentsBook: View {
     
     @ObservedObject var dataModel = DataModel()
@@ -13,11 +12,7 @@ public struct ComponentsBook: View {
         } else {
             return dataModel.chapters.filter { pages in
                 guard let pages = pages.pages else { return false }
-                for page in pages {
-                    return page.title?.contains(searchText) ?? false
-                }
-
-                return false
+                return pages.map { $0.title }.contains(searchText)
             }
         }
     }
@@ -43,7 +38,6 @@ public struct ComponentsBook: View {
     }
 }
 
-@available(iOS 15.0, *, macOS 11.0, *)
 struct ComponentsBook_Previews: PreviewProvider {
     static var previews: some View {
         ComponentsBook(dataModel: DataModel.previewData)
