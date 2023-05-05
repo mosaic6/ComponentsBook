@@ -2,11 +2,8 @@
 //  Created by Joshua Walsh on 10/13/21.
 //
 
-import Foundation
 import SwiftUI
 
-/// The main holder of each component type.
-@available(iOS 14.0, *, macOS 11.0, *)
 public struct Chapter: Identifiable {
     public var id = UUID()
     
@@ -19,33 +16,6 @@ public struct Chapter: Identifiable {
     }
 }
 
-@available(iOS 14.0, *, macOS 11.0, *)
-public struct Page: Identifiable {
-    public let id = UUID()
-
-    public let subType: SubTypes?
-    public let title: String?
-    public let description: String?
-    public let view: AnyView
-
-    public init(subType: SubTypes?,
-                title: String? = "",
-                description: String? = "",
-                view: AnyView) {
-        self.subType = subType
-        self.title = subType?.title ?? title
-        self.description = description
-        self.view = view
-    }
-
-    @ViewBuilder func makeView() -> some View {
-        VStack {
-            view
-        }
-    }
-}
-
-@available(iOS 14.0, *, macOS 11.0, *)
 extension Chapter: Hashable {
     public static func == (lhs: Chapter, rhs: Chapter) -> Bool {
         return lhs.id == rhs.id
@@ -56,13 +26,17 @@ extension Chapter: Hashable {
     }
 }
 
-@available(iOS 14.0, *, macOS 11.0, *)
-extension Page: Hashable {
-    public static func == (lhs: Page, rhs: Page) -> Bool {
-        return lhs.id == rhs.id
+@resultBuilder
+public enum ChapterArrayBuilder {
+    public static func buildBlock(_ components: [Chapter]...) -> [Chapter] {
+        return components.flatMap { $0 }
     }
     
-    public func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
+    public static func buildEither(first component: [Chapter]) -> [Chapter] {
+        return component
+    }
+    
+    public static func buildEither(second component: [Chapter]) -> [Chapter] {
+        return component
     }
 }
