@@ -32,7 +32,6 @@ public struct ComponentsBook: View {
                     }
                 }
             }
-            .searchable(text: $searchText)
             .listStyle(SidebarListStyle())
         }
     }

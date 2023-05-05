@@ -25,8 +25,6 @@ public struct Page: Identifiable {
     @ViewBuilder func makeView() -> some View {
         VStack {
             view
-            Divider()
-            PageDetails(parentView: view)
         }
     }
 }

@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftUI
-import ViewInspector
 
 struct PageDetails: View {
     let parentView: AnyView
@@ -16,20 +15,6 @@ struct PageDetails: View {
         VStack {
             parentView
         }
-        .onAppear {
-            do {
-                try printName()
-            } catch {
-                print(error)
-            }
-        }
-    }
-    
-    func printName() throws {
-        guard let name = try? parentView.inspect().viewModifierContent() else {
-            return
-        }
-        print(name)
     }
 }
 
