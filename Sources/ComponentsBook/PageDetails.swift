@@ -1,5 +1,5 @@
 //
-//  SwiftUIView.swift
+//  PageDetails.swift
 //  
 //
 //  Created by Joshua Walsh on 5/4/23.
@@ -14,7 +14,7 @@ struct PageDetails: View {
         
     var body: some View {
         VStack {
-            EmptyView()
+            parentView
         }
         .onAppear {
             do {
@@ -33,14 +33,8 @@ struct PageDetails: View {
     }
 }
 
-struct SwiftUIView_Previews: PreviewProvider {
+struct PageDetails_Previews: PreviewProvider {
     static var previews: some View {
-        PageDetails(parentView: AnyView(
-            Text("Hello")
-                .background(Color.blue)
-                .foregroundColor(.red)
-                .cornerRadius(4)
-                .padding(4)
-        ))
+        PageDetails(parentView: AnyView(Text("hello")))
     }
 }
