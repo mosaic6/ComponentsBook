@@ -4,39 +4,30 @@
 
 import SwiftUI
 
-public struct Chapter: Identifiable {
-    public var id = UUID()
-    
-    public var type: MainTypes
-    public var pages: [Page]?
+public struct AnyComponent: Identifiable {
+    public let id = UUID()
+    public let name: String
+    public let description: String?
+    public let type: SubTypes
+    public let view: AnyView
 
-    public init(type: MainTypes, pages: [Page]?) {
+    public init<Content: View>(name: String, description: String?, type: SubTypes, view: Content) {
+        self.name = name
+        self.description = description
         self.type = type
-        self.pages = pages
+        self.view = AnyView(view)
     }
 }
 
-extension Chapter: Hashable {
-    public static func == (lhs: Chapter, rhs: Chapter) -> Bool {
-        return lhs.id == rhs.id
+public class ComponentRegistry {
+    static let shared = ComponentRegistry()
+    private var items = [AnyComponent]()
+    
+    public func register(_ item: AnyComponent) {
+        items.append(item)
     }
 
-    public func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
-}
-
-@resultBuilder
-public enum ChapterArrayBuilder {
-    public static func buildBlock(_ components: [Chapter]...) -> [Chapter] {
-        return components.flatMap { $0 }
-    }
-    
-    public static func buildEither(first component: [Chapter]) -> [Chapter] {
-        return component
-    }
-    
-    public static func buildEither(second component: [Chapter]) -> [Chapter] {
-        return component
+    public func listComponents() -> [AnyComponent] {
+        items.map { $0 }
     }
 }
