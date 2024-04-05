@@ -4,7 +4,8 @@
 
 import Foundation
 
-public enum ViewTypes: CustomStringConvertible {
+/// An enum that represents common view type components.
+public enum ViewTypes: CustomStringConvertible, Equatable {
     case actionSheets
     case activityViews
     case alerts

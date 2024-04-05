@@ -4,7 +4,8 @@
 
 import Foundation
 
-public enum BarTypes: CustomStringConvertible {
+/// An enum that represents common bar type components.
+public enum BarTypes: CustomStringConvertible, Equatable {
     case navigationBars
     case searchBars
     case sidebars

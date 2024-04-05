@@ -3,8 +3,9 @@
 //
 
 import Foundation
-/// The type in which to categorize a component
-public enum MainTypes: CustomStringConvertible {
+
+/// The type in which to categorize a component.
+public enum MainTypes: CustomStringConvertible, Equatable {
     case bars
     case controls
     case views

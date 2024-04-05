@@ -4,7 +4,8 @@
 
 import Foundation
 
-public enum ExtensionTypes: CustomStringConvertible {
+/// An enum that represents common extension type components.
+public enum ExtensionTypes: CustomStringConvertible, Equatable {
     case customKeyboards
     case fileProviders
     case messaging

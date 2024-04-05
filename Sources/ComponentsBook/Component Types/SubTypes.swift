@@ -4,8 +4,8 @@
 
 import Foundation
 
-
-public enum SubTypes {
+/// The type in which to categorize a components sub type.
+public enum SubTypes: Equatable {
     case barType(BarTypes)
     case controlType(ControlTypes)
     case customType(CustomTypes)
