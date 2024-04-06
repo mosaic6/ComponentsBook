@@ -13,7 +13,11 @@ public struct ComponentsBook: View {
         } else {
             return dataModel.chapters.filter { pages in
                 guard let pages = pages.pages else { return false }
-                return pages.map { $0.title }.contains(searchText)
+                return pages.map {
+                    $0.title
+                }.contains(
+                    searchText
+                )
             }
         }
     }

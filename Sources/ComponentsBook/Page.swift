@@ -42,26 +42,7 @@ public struct Page: Identifiable, Equatable {
     }
 
     @ViewBuilder func makeView() -> some View {
-        VStack {
-            Spacer()
-            view
-                .padding(.all)
-            Spacer()
-            bottomTray
-        }
-        .navigationTitle(title ?? subType?.title ?? "")
-    }
-
-    @ViewBuilder var bottomTray: some View {
-        VStack {
-            HStack {
-                Image(systemName: "text.viewfinder")
-                Text(description ?? "")
-            }
-            .padding(.vertical)
-            .frame(maxWidth: .infinity)
-            .background(Color.gray.opacity(0.1))
-        }
+        PageDetails(parentView: view)
     }
 }
 

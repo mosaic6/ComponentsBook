@@ -28,10 +28,11 @@ public class DataModel: ObservableObject {
 /// Below is default or test data.
 #if DEBUG
 struct TestView: View {
+    let title: String
     var body: some View {
         HStack {
             Image(systemName: "plus.message.fill")
-            TextField("Test text", text: .constant("Some Values"))
+            TextField(title, text: .constant("Some Values"))
                 .background(Color.primary)
                 .padding(.horizontal, 10)
         }
@@ -95,10 +96,10 @@ extension DataModel {
             Page(subType: .barType(.tabBars), view: AnyView(TestToolBar()))
         ]),
         Chapter(type: .controls, pages: [
-            Page(subType: .controlType(.textFields), description: "A view for a textField", view: AnyView(TestView())),
-            Page(subType: .controlType(.colorWells), view: AnyView(TestView())),
-            Page(subType: .controlType(.buttons), view: AnyView(TestButton())),
-            Page(subType: .controlType(.buttons), title: "Filler Button", view: AnyView(FilledButton(title: "Filler", action: {}))),
+            Page(subType: .controlType(.textFields), view: AnyView(TestView(title: "Nice"))),
+            Page(subType: .controlType(.colorWells), view: AnyView(TestView(title: "Tour"))),
+            Page(subType: .controlType(.buttons), view: AnyView(TestView(title: "Scan"))),
+            Page(subType: .controlType(.editMenus), view: AnyView(TestView(title: "Feel free"))),
             Page(subType: .controlType(.buttons), view: AnyView(Button {
                 print("Ouch! You pressed too hard!")
             } label: {
@@ -110,7 +111,6 @@ extension DataModel {
                         .font(.title)
                 }
             })),
-            Page(subType: .controlType(.editMenus), view: AnyView(TestView()))
         ])
     ])
 }
