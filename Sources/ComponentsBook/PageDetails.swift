@@ -27,8 +27,6 @@ struct PageDetails<Content: View>: View {
     }
 }
 
-struct PageDetails_Previews: PreviewProvider {
-    static var previews: some View {
-        PageDetails(parentView: TestView(title: "Awesome"))
-    }
+#Preview {
+    PageDetails(parentView: TestView(title: "Awesome"))
 }

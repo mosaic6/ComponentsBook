@@ -4,7 +4,8 @@
 
 import Foundation
 
-public enum ControlTypes: CustomStringConvertible {
+/// An enum that represents common control type components.
+public enum ControlTypes: CustomStringConvertible, Equatable {
     case buttons
     case colorWells
     case contextMenus

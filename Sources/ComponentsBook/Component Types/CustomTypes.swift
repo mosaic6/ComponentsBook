@@ -4,7 +4,8 @@
 
 import Foundation
 
-public enum CustomTypes: CustomStringConvertible, CaseIterable {
+/// An enum that represents custom type components.
+public enum CustomTypes: CustomStringConvertible, CaseIterable, Equatable {
     public static var allCases: [CustomTypes] {
         return [.some("")]
     }
