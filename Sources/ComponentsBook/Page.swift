@@ -23,9 +23,7 @@ public struct Page: Identifiable {
     }
 
     @ViewBuilder func makeView() -> some View {
-        VStack {
-            view
-        }
+        PageDetails(parentView: view)
     }
 }
 
