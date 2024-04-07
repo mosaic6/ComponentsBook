@@ -6,20 +6,20 @@ import Foundation
 
 /// An enum that represents common control type components.
 public enum ControlTypes: CustomStringConvertible, Equatable {
-    case buttons
-    case colorWells
-    case contextMenus
-    case editMenus
-    case labels
-    case pageControls
-    case pickers
-    case progressIndicators
-    case refreshContentControls
-    case segmentedControls
-    case sliders
-    case steppers
-    case switches
-    case textFields
+    case button
+    case colorWell
+    case contextMenu
+    case editMenu
+    case label
+    case pageControl
+    case picker
+    case progressIndicator
+    case refreshContentControl
+    case segmentedControl
+    case slider
+    case stepper
+    case switche
+    case textField
     case custom(title: String)
 
     public var description: String {
@@ -28,20 +28,20 @@ public enum ControlTypes: CustomStringConvertible, Equatable {
 
     public var title: String {
         switch self {
-        case .buttons: return "Buttons"
-        case .colorWells: return "Color Wells"
-        case .contextMenus: return "Context Menus"
-        case .editMenus: return "Edit Menus"
-        case .labels: return "Labels"
-        case .pageControls: return "Page Controls"
-        case .pickers: return "Pickers"
-        case .progressIndicators: return "Progress Indicators"
-        case .refreshContentControls: return "Refresh Controls"
-        case .segmentedControls: return "Segmented Controls"
-        case .sliders: return "Sliders"
-        case .steppers: return "Steppers"
-        case .switches: return "Switches"
-        case .textFields: return "Text Fields"
+        case .button: return "Button"
+        case .colorWell: return "Color Well"
+        case .contextMenu: return "Context Menu"
+        case .editMenu: return "Edit Menu"
+        case .label: return "Label"
+        case .pageControl: return "Page Control"
+        case .picker: return "Picker"
+        case .progressIndicator: return "Progress Indicator"
+        case .refreshContentControl: return "Refresh Control"
+        case .segmentedControl: return "Segmented Control"
+        case .slider: return "Slider"
+        case .stepper: return "Stepper"
+        case .switche: return "Switche"
+        case .textField: return "Text Field"
         case .custom(let title): return title
         }
     }

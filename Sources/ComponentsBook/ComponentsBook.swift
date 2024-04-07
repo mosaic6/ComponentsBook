@@ -7,6 +7,8 @@ public struct ComponentsBook: View {
 
     @State private var searchText = ""
 
+    @Environment(\.isSearching) private var isSearching
+
     private var searchResults: [Chapter] {
         if searchText.isEmpty {
             return dataModel.chapters
@@ -30,26 +32,27 @@ public struct ComponentsBook: View {
         NavigationView {
             List {
                 ForEach(searchResults, id: \.self) { chapter in
-                    Section(header: Label(chapter.type.title, systemImage: chapter.type.icon)) {
+                    Section {
                         ForEach(chapter.pages ?? [], id: \.self) { page in
-                            NavigationLink(page.title ?? page.subType?.title ?? "", destination: page.makeView())
+                            NavigationLink {
+                                page.makeView()
+                            } label: {
+                                HStack {
+                                    Text(page.title ?? page.subType?.title ?? "")
+                                }
+                            }
                         }
+                    } header: {
+                        Label(chapter.type.title, systemImage: chapter.type.icon)
                     }
                 }
             }
             .listStyle(SidebarListStyle())
-
             VStack(alignment: .center) {
                 Text("Select the view you want to inspect from the side menu.")
                     .font(Font.largeTitle)
                     .padding(.all)
             }
-        }
-        .onAppear {
-//            let device = UIDevice.current
-//            if device.model == "iPad" && device.orientation.isLandscape {
-//                // TODO: Select view
-//            }
         }
     }
 }

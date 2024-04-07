@@ -37,12 +37,12 @@ import ComponentsBook
 ```
 let chapters: [Chapter] = [
     /// Group Button controls here
-    .init(type: .controls, pages: [
-        .init(subType: .controlType(.buttons), title: "Example Button", description: nil, view: AnyView(ExampleButton()))
+    Chapter(type: .controls, pages: [
+        Page(subType: .controlType(.buttons), title: "Example Button", description: nil, view: AnyView(ExampleButton()))
     ]),
     /// Group Page views here
-    .init(type: .views, pages: [
-        .init(subType: .viewType(.actionSheets), title: "Empty View", description: nil, view: AnyView(CustomActionSheet()))
+    Chapter(type: .views, pages: [
+        Page(subType: .viewType(.actionSheets), title: "Empty View", description: nil, view: AnyView(CustomActionSheet()))
     ])
 ]
 ```
