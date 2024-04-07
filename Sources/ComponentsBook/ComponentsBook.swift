@@ -6,8 +6,6 @@ public struct ComponentsBook: View {
     @ObservedObject var dataModel = DataModel()
 
     @State private var searchText = ""
-    @State private var showTopSection = true
-    @State private var showNestedSection = true
 
     @Environment(\.isSearching) private var isSearching
 
@@ -34,7 +32,7 @@ public struct ComponentsBook: View {
         NavigationView {
             List {
                 ForEach(searchResults, id: \.self) { chapter in
-                    Section(isExpanded: $showTopSection) {
+                    Section {
                         ForEach(chapter.pages ?? [], id: \.self) { page in
                             NavigationLink {
                                 page.makeView()
@@ -49,7 +47,6 @@ public struct ComponentsBook: View {
                     }
                 }
             }
-//            .searchable(text: $searchText)
             .listStyle(SidebarListStyle())
             VStack(alignment: .center) {
                 Text("Select the view you want to inspect from the side menu.")
