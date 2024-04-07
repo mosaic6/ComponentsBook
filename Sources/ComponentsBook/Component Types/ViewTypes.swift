@@ -6,19 +6,19 @@ import Foundation
 
 /// An enum that represents common view type components.
 public enum ViewTypes: CustomStringConvertible, Equatable {
-    case actionSheets
-    case activityViews
-    case alerts
-    case collections
-    case imagesViews
-    case pages
-    case popovers
-    case scrollViews
-    case sheets
-    case splitViews
-    case tables
-    case textViews
-    case webViews
+    case actionSheet
+    case activityView
+    case alert
+    case collection
+    case imagesView
+    case page
+    case popover
+    case scrollView
+    case sheet
+    case splitView
+    case table
+    case textView
+    case webView
     case custom(title: String)
 
     public var description: String {
@@ -27,19 +27,19 @@ public enum ViewTypes: CustomStringConvertible, Equatable {
 
     public var title: String {
         switch self {
-        case .actionSheets: return "Action Sheets"
-        case .activityViews: return "Activity Views"
-        case .alerts: return "Alerts"
-        case .collections: return "Collections"
-        case .imagesViews: return "Image Views"
-        case .pages: return "Pages"
-        case .popovers: return "Popovers"
-        case .scrollViews: return "Scroll Views"
-        case .sheets: return "Sheets"
-        case .splitViews: return "Split Views"
-        case .tables: return "Tables and Lists"
-        case .textViews: return "Text Views"
-        case .webViews: return "Web Views"
+        case .actionSheet: return "Action Sheet"
+        case .activityView: return "Activity View"
+        case .alert: return "Alert"
+        case .collection: return "Collection"
+        case .imagesView: return "Image View"
+        case .page: return "Page"
+        case .popover: return "Popover"
+        case .scrollView: return "Scroll View"
+        case .sheet: return "Sheet"
+        case .splitView: return "Split View"
+        case .table: return "Tables and List"
+        case .textView: return "Text View"
+        case .webView: return "Web View"
         case .custom(let title): return title
         }
     }

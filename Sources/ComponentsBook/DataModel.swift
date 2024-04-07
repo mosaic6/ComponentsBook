@@ -76,7 +76,6 @@ struct TestToolBar: View {
         HStack {
             Text("Hello, World!")
                 .padding()
-                .navigationTitle("SwiftUI")
                 .toolbar {
                     ToolbarItem(placement: .automatic) {
                         Button("Press Me") {
@@ -96,11 +95,9 @@ extension DataModel {
             Page(subType: .barType(.tabBars), view: AnyView(TestToolBar()))
         ]),
         Chapter(type: .controls, pages: [
-            Page(subType: .controlType(.textFields), view: AnyView(TestView(title: "Nice"))),
-            Page(subType: .controlType(.colorWells), view: AnyView(TestView(title: "Tour"))),
-            Page(subType: .controlType(.buttons), view: AnyView(TestView(title: "Scan"))),
-            Page(subType: .controlType(.editMenus), view: AnyView(TestView(title: "Feel free"))),
-            Page(subType: .controlType(.buttons), view: AnyView(Button {
+            Page(subType: .controlType(.textField), title: "Test View", view: AnyView(TestView(title: "Nice"))),
+            Page(subType: .controlType(.button), title: "A button", view: AnyView(FilledButton(title: "A button", action: {}))),
+            Page(subType: .controlType(.button), title: "A custom button", view: AnyView(Button {
                 print("Ouch! You pressed too hard!")
             } label: {
                 HStack {
