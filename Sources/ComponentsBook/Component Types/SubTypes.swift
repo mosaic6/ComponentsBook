@@ -11,9 +11,8 @@ public enum SubTypes: Equatable {
     case customType(CustomTypes)
     case extensionType(ExtensionTypes)
     case viewType(ViewTypes)
-    case custom(CustomTypes)
 
-    var title: String {
+    public var title: String {
         switch self {
         case .barType(let types):
             return types.title
@@ -24,8 +23,6 @@ public enum SubTypes: Equatable {
         case .extensionType(let types):
             return types.title
         case .viewType(let types):
-            return types.title
-        case .custom(let types):
             return types.title
         }
     }

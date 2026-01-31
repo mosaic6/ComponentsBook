@@ -2,6 +2,11 @@
 
 A component library for SwiftUI views.
 
+## Requirements
+
+- iOS 17+ / macOS 14+
+- Swift 5.9+
+
 ## Installation
 
 ### Swift Package Manager
@@ -10,9 +15,9 @@ The Swift Package Manager is a tool for automating the distribution of Swift cod
 
 Once you have your Swift package set up, adding ComponentsBook as a dependency is as easy as adding it to the dependencies value of your Package.swift.
 
-```
+```swift
 dependencies: [
-    .Package(url: "https://github.com/mosaic6/ComponentsBook.git", majorVersion: 1)
+    .package(url: "https://github.com/mosaic6/ComponentsBook.git", from: "1.0.0")
 ]
 ```
 
@@ -28,28 +33,28 @@ dependencies: [
 
 - Import `ComponentsBook` in `ContentView`
 
-```
+```swift
 import ComponentsBook
 ```
 
 - Add an array of your SwiftUI views as an array of `Chapter` types
 
-```
+```swift
 let chapters: [Chapter] = [
     /// Group Button controls here
     Chapter(type: .controls, pages: [
-        Page(subType: .controlType(.buttons), title: "Example Button", description: nil, view: AnyView(ExampleButton()))
+        Page(subType: .controlType(.button), title: "Example Button", description: nil, view: ExampleButton())
     ]),
     /// Group Page views here
     Chapter(type: .views, pages: [
-        Page(subType: .viewType(.actionSheets), title: "Empty View", description: nil, view: AnyView(CustomActionSheet()))
+        Page(subType: .viewType(.actionSheet), title: "Empty View", description: nil, view: CustomActionSheet())
     ])
 ]
 ```
 
 - Update the `body` property with `ComponentsBook(dataModel: DataModel(chapters: chapters))`
 
-```
+```swift
 var body: some View {
     ComponentsBook(dataModel: DataModel(chapters: chapters))
 }

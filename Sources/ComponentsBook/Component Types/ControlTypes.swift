@@ -18,7 +18,7 @@ public enum ControlTypes: CustomStringConvertible, Equatable {
     case segmentedControl
     case slider
     case stepper
-    case switche
+    case `switch`
     case textField
     case custom(title: String)
 
@@ -40,7 +40,7 @@ public enum ControlTypes: CustomStringConvertible, Equatable {
         case .segmentedControl: return "Segmented Control"
         case .slider: return "Slider"
         case .stepper: return "Stepper"
-        case .switche: return "Switche"
+        case .`switch`: return "Switch"
         case .textField: return "Text Field"
         case .custom(let title): return title
         }

@@ -12,21 +12,12 @@ struct PageDetails<Content: View>: View {
     let parentView: Content
         
     var body: some View {
-        VStack {
-            parentView
-                .padding()
-                .accessibilityElement(children: .contain)
-            let mirror = Mirror(reflecting: parentView)
-            List {
-                ForEach(Array(mirror.children), id: \.label) { child in
-                    Text("\(child.label ?? "unknown"): \(String(describing: child.value))")
-                        .font(.callout)
-                }
-            }
-        }
+        parentView
+            .padding()
+            .accessibilityElement(children: .contain)
     }
 }
 
 #Preview {
-    PageDetails(parentView: TestView(title: "Awesome"))
+    PageDetails(parentView: Text("Hi").font(.callout).foregroundStyle(Color.blue))
 }

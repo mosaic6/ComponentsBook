@@ -2,7 +2,6 @@ import XCTest
 import SwiftUI
 @testable import ComponentsBook
 
-@available(iOS 17.0, *)
 final class PageAndChapterTests: XCTestCase {
 
     func testPageInitialization() {
@@ -11,6 +10,14 @@ final class PageAndChapterTests: XCTestCase {
 
         XCTAssertEqual(page.title, "Test Page")
         XCTAssertEqual(page.description, "This is a test page.")
+        XCTAssertEqual(page.subType, .none)
+    }
+
+    func testGenericPageInitialization() {
+        let page = Page(subType: .none, title: "Generic Page", description: "A page with a generic view.", view: Text("Hello, World!"))
+
+        XCTAssertEqual(page.title, "Generic Page")
+        XCTAssertEqual(page.description, "A page with a generic view.")
         XCTAssertEqual(page.subType, .none)
     }
 
@@ -25,8 +32,8 @@ final class PageAndChapterTests: XCTestCase {
         XCTAssertEqual(chapter.pages?[0].subType, .viewType(.custom(title: "")))
     }
 
-    static var allTests = [
-        ("testPageInitialization", testPageInitialization),
-        ("testChapterInitialization", testChapterInitialization)
-    ]
+    func testSwitchControlTypeTitle() {
+        let controlType = ControlTypes.`switch`
+        XCTAssertEqual(controlType.title, "Switch")
+    }
 }

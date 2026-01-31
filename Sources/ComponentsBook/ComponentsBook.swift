@@ -1,25 +1,21 @@
 import SwiftUI
 
-@available(iOS 17.0, *)
 public struct ComponentsBook: View {
-    
+
     @ObservedObject var dataModel = DataModel()
 
     @State private var searchText = ""
-
-    @Environment(\.isSearching) private var isSearching
 
     private var searchResults: [Chapter] {
         if searchText.isEmpty {
             return dataModel.chapters
         } else {
-            return dataModel.chapters.filter { pages in
-                guard let pages = pages.pages else { return false }
-                return pages.map {
-                    $0.title
-                }.contains(
-                    searchText
-                )
+            return dataModel.chapters.filter { chapter in
+                guard let pages = chapter.pages else { return false }
+                return pages.contains { page in
+                    let title = page.title ?? page.subType?.title ?? ""
+                    return title.localizedCaseInsensitiveContains(searchText)
+                }
             }
         }
     }
@@ -29,7 +25,7 @@ public struct ComponentsBook: View {
     }
 
     public var body: some View {
-        NavigationView {
+        NavigationSplitView {
             List {
                 ForEach(searchResults, id: \.self) { chapter in
                     Section {
@@ -48,6 +44,8 @@ public struct ComponentsBook: View {
                 }
             }
             .listStyle(SidebarListStyle())
+            .searchable(text: $searchText)
+        } detail: {
             VStack(alignment: .center) {
                 Text("Select the view you want to inspect from the side menu.")
                     .font(Font.largeTitle)
@@ -57,7 +55,6 @@ public struct ComponentsBook: View {
     }
 }
 
-@available(iOS 17.0, *)
 struct ComponentsBook_Previews: PreviewProvider {
     static var previews: some View {
         ComponentsBook(dataModel: DataModel.previewData)

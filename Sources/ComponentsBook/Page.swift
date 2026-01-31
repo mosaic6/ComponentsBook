@@ -5,7 +5,6 @@
 import SwiftUI
 
 /// A struct representing a page in the app.
-@available(iOS 17.0, *)
 public struct Page: Identifiable, Equatable {
 
     /// The unique identifier for the page.
@@ -25,7 +24,7 @@ public struct Page: Identifiable, Equatable {
 
     /**
      Initializes a new `Page` object with the specified parameters.
-     
+
      - Parameter subType: The sub-type of the page, if any.
      - Parameter title: The title of the page, if any. Defaults to `nil`.
      - Parameter description: The description of the page, if any. Defaults to an empty string.
@@ -41,12 +40,29 @@ public struct Page: Identifiable, Equatable {
         self.view = view
     }
 
-    @ViewBuilder func makeView() -> some View {
+    /**
+     Initializes a new `Page` object with a concrete SwiftUI `View`, automatically wrapping it in `AnyView`.
+
+     - Parameter subType: The sub-type of the page, if any.
+     - Parameter title: The title of the page, if any. Defaults to `nil`.
+     - Parameter description: The description of the page, if any. Defaults to an empty string.
+     - Parameter view: A concrete SwiftUI view to display for the page.
+     */
+    public init<V: View>(subType: SubTypes?,
+                         title: String? = nil,
+                         description: String? = "",
+                         view: V) {
+        self.subType = subType
+        self.title = title
+        self.description = description
+        self.view = AnyView(view)
+    }
+
+    @ViewBuilder public func makeView() -> some View {
         PageDetails(parentView: view)
     }
 }
 
-@available(iOS 17.0, *)
 extension Page: Hashable {
     public static func == (lhs: Page, rhs: Page) -> Bool {
         return lhs.id == rhs.id
@@ -54,21 +70,5 @@ extension Page: Hashable {
 
     public func hash(into hasher: inout Hasher) {
         hasher.combine(id)
-    }
-}
-
-@available(iOS 17.0, *)
-@resultBuilder
-public enum PageArrayBuilder {
-    public static func buildBlock(_ components: [Page]...) -> [Page] {
-        return components.flatMap { $0 }
-    }
-    
-    public static func buildEither(first component: [Page]) -> [Page] {
-        return component
-    }
-    
-    public static func buildEither(second component: [Page]) -> [Page] {
-        return component
     }
 }

@@ -5,16 +5,15 @@
 import Foundation
 import SwiftUI
 
-@available(iOS 17.0, *)
 /// A data model that contains an array of `Chapter` objects.
 public class DataModel: ObservableObject {
 
     /// The array of `Chapter` objects.
-    @Published var chapters = [Chapter]()
+    @Published public var chapters = [Chapter]()
 
     /**
      Initializes a new `DataModel` object with an optional array of `Chapter` objects.
-     
+
      - Parameter chapters: An optional array of `Chapter` objects to use as the initial value for the `chapters` property. Defaults to an empty array if not provided.
      */
     public init(chapters: [Chapter] = []) {
@@ -27,7 +26,11 @@ public class DataModel: ObservableObject {
 
 /// Below is default or test data.
 #if DEBUG
-struct TestView: View {
+struct TestView: View, CustomDebugStringConvertible {
+    var debugDescription: String {
+        "MyCustomView with someProperty: \(title)"
+    }
+
     let title: String
     var body: some View {
         HStack {
@@ -88,7 +91,6 @@ struct TestToolBar: View {
 }
 
 
-@available(iOS 17.0, *)
 extension DataModel {
     static var previewData: DataModel = DataModel(chapters: [
         Chapter(type: .bars, pages: [
